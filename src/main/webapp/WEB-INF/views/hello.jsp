@@ -9,5 +9,6 @@
 <body>
 	<h1>Hello Spring</h1>
 	<p>${message }</p>
+	<p>params: ${param }</p>
 </body>
 </html>

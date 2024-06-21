@@ -1,6 +1,7 @@
 package himedia.hellospring.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,7 @@ public class HelloController {
 		
 		return mav;
 	}
-	
+	//
 	@RequestMapping("/hello2")
 	// return type: String -> ViewName
 	public String hello2(@RequestParam("name") String name, 
@@ -45,5 +46,10 @@ public class HelloController {
 		return "<h1>Request</h1><p>" + vo + "</p>";
 	}
 	
+	@RequestMapping("/hello4")
+	public String hello4(@ModelAttribute UserVo vo, Model model) {
+		model.addAttribute("params", vo);
+		return "/WEB-INF/views/hello.jsp";									// ViewName
+	}
 
 }
